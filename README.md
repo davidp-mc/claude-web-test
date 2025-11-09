@@ -134,6 +134,43 @@ To enable real payment processing:
 - **@stripe/react-stripe-js**: Stripe React components
 - **localStorage**: Client-side data persistence
 
+## GitHub Actions CI/CD
+
+This project includes automated workflows for continuous integration and deployment:
+
+### Automated Workflows
+
+1. **Build and Deploy** - Runs on every push and PR
+   - Tests build on Node.js 18.x and 20.x
+   - Uploads build artifacts
+   - Ready for GitHub Pages deployment
+
+2. **Continuous Integration (CI)** - Code quality checks
+   - Runs ESLint for code linting
+   - Verifies successful builds
+   - Reports build size and output
+
+3. **Deploy to GitHub Pages** - Manual or automatic deployment
+   - Builds optimized production bundle
+   - Deploys to GitHub Pages
+   - Accessible from Actions tab
+
+### Deploying to GitHub Pages
+
+1. **Enable GitHub Pages:**
+   - Go to repository Settings → Pages
+   - Under "Source", select "GitHub Actions"
+
+2. **Update Base Path (if needed):**
+   - Edit `VITE_BASE_PATH` in `.github/workflows/deploy-pages.yml`
+   - Set to `/repo-name/` for project pages
+
+3. **Deploy:**
+   - **Automatic**: Push to `main` branch
+   - **Manual**: Actions tab → "Deploy to GitHub Pages" → "Run workflow"
+
+For more details, see [.github/workflows/README.md](.github/workflows/README.md)
+
 ## Security Notes
 
 - Never commit real Stripe secret keys to version control
